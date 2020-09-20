@@ -4,6 +4,7 @@ module Contentful
   class RecipesLoader
     DEFAULT_PAGE_SIZE = 10
     MAX_PAGE_SIZE = 1000
+    ORDER_FIELDS = 'sys.updatedAt,sys.id'
 
     def initialize(page: nil, per_page: nil)
       @page = normalize_page_argument(page)
@@ -11,7 +12,7 @@ module Contentful
     end
 
     def nodes
-      @nodes ||= Recipe.paginate(page, per_page).load
+      @nodes ||= Recipe.paginate(page, per_page, ORDER_FIELDS).load
     end
 
     def nodes_count
