@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker', '~> 2.14.0'
   gem 'rspec-graphql_matchers', '~> 1.3.0'
   gem 'vcr', '~> 6.0.0'
   gem 'webmock', '~> 3.9.1'
