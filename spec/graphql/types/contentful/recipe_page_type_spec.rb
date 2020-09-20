@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+describe Types::Contentful::RecipePageType do
+  subject { described_class }
+
+  it { is_expected.to have_field(:nodes).of_type('[Recipe!]!') }
+  it { is_expected.to have_field(:nodes_count).of_type('Int!') }
+  it { is_expected.to have_field(:has_previous_page).of_type('Boolean!') }
+  it { is_expected.to have_field(:has_next_page).of_type('Boolean!') }
+  it { is_expected.to have_field(:pages_count).of_type('Int!') }
+end
