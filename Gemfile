@@ -35,6 +35,8 @@ end
 
 group :test do
   gem 'rspec-graphql_matchers', '~> 1.3.0'
+  gem 'vcr', '~> 6.0.0'
+  gem 'webmock', '~> 3.9.1'
 end
 
 group :development do
