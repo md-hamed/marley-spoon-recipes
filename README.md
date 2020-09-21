@@ -5,7 +5,7 @@ This is a project to demonstrate the usage of Marley Spoon recipes on [Contentfu
 
 ## User stories
 - As a Marley Spoon Recipes Guide user, I want to see a *paginated* list of recipes available in the system. Every recipe should display its title and image.
-- As a Marley Spoon Recipes Guide user, I want to see more details about any recipe in the list. An recipe should display its title, image, list of tags, description, and chef name.
+- As a Marley Spoon Recipes Guide user, I want to see more details about any recipe in the list when I select it. A recipe should display its title, image, list of tags, description, and chef name.
 
 ## Versions
 - `Ruby 2.6.2`
@@ -16,25 +16,29 @@ This is a project to demonstrate the usage of Marley Spoon recipes on [Contentfu
 ## How to run it?
 It's pretty straightforward.
 - You will need to have bundler installed by running
-`gem install bundler:1.17.2`.
+
+`$ gem install bundler:1.17.2`
 - I personally use `rvm` and the project already have the config required to configure the ruby version and the gemset.
-- Install the depedencies using `bundler`
-`bundle`
-- Install JS depedencies using `yarn` with
-`yarn install`
-- Run the rails server with
-`rs`
+- Install the depedencies using `bundler` by running:
+
+`$ bundle`
+- Install JS depedencies using `yarn` by running:
+
+`$ yarn install`
+- Run the rails server by running `rs`.
 and voila! The project should be running @ `http://localhost:3000/` 🎉
 - To access `graphiql`, go to `http://localhost:3000/graphiql`.
 
 ## How to run the specs?
 ### Run Rails specs
-To run the specs ; it's pretty straightforward too, just run
-`rspec`
+To run the specs; it's pretty straightforward too, just run
+
+`$ rspec`
 
 ### Run JS specs
-To run the specs ; it's pretty straightforward too, just run
-`yarn test`
+To run the specs; it's pretty straightforward too, just run
+
+`$ yarn test`
 
 ## Discussion
 - For consuming Contentful APIs, I used [contentful_model](https://github.com/contentful/contentful_model) which served me really well as it's a thin wrapper around the [Contentful Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api).
