@@ -22,6 +22,7 @@ const Recipes = () => {
         loading={loading}
         error={error}
         handlePageChange={handlePaginationChange}
+        activePage={activePage}
       />
     );
   }
@@ -30,9 +31,10 @@ const Recipes = () => {
     <RecipeList
       loading={loading}
       error={error}
+      handlePageChange={handlePaginationChange}
+      activePage={activePage}
       recipes={data.recipes.nodes}
       pagesCount={data.recipes.pagesCount}
-      handlePageChange={handlePaginationChange}
     />
   );
 };

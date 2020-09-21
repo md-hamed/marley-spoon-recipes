@@ -11,7 +11,6 @@ import {
   Pagination,
   Divider,
 } from 'semantic-ui-react';
-
 import RecipeItem from '../RecipeItem';
 import RecipeType from '../../types';
 
@@ -21,6 +20,7 @@ const RecipeList = ({
   recipes,
   pagesCount,
   handlePageChange,
+  activePage,
 }) => (
   <Container>
     <Header as="h1">Marley Spoon Recipes!</Header>
@@ -47,7 +47,7 @@ const RecipeList = ({
     <Divider horizontal />
 
     <Pagination
-      defaultActivePage={1}
+      activePage={activePage}
       totalPages={pagesCount}
       onPageChange={handlePageChange}
     />
@@ -55,18 +55,20 @@ const RecipeList = ({
 );
 
 RecipeList.propTypes = {
-  error: ApolloError,
+  error: PropTypes.objectOf(ApolloError),
   loading: PropTypes.bool,
   recipes: PropTypes.arrayOf(RecipeType),
   pagesCount: PropTypes.number,
   handlePageChange: PropTypes.func.isRequired,
+  activePage: PropTypes.number,
 };
 
 RecipeList.defaultProps = {
-  error: false,
+  error: null,
   loading: true,
   recipes: [],
   pagesCount: 0,
+  activePage: 1,
 };
 
 export default RecipeList;

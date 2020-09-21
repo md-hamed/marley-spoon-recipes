@@ -16,10 +16,10 @@ const App = () => (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Redirect to="/recipes" />
+          <Redirect to="/recipes/1" />
         </Route>
         <Route exact path="/recipes/:page?" component={Recipes} />
-        <Route exact path="/recipe" component={Recipe} />
+        <Route exact path="/recipe/:id" component={Recipe} />
       </Switch>
     </Router>
   </ApolloProvider>

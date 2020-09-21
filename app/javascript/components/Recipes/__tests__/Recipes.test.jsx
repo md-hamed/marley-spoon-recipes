@@ -1,7 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
+import { ApolloError } from '@apollo/client';
 import { buildMultipleRecipes } from '../../../testUtils/helper';
 import Recipes from '../../Recipes';
 import * as RecipesQuery from '../queries/Recipes.gql';
@@ -46,7 +48,7 @@ describe('<Recipes />', () => {
             perPage: 2,
           },
         },
-        error: new Error('Something went wrong!'),
+        error: new ApolloError('Something went wrong!'),
       },
     ];
 
@@ -77,9 +79,11 @@ describe('<Recipes />', () => {
 
   it('renders the recipes', async () => {
     const { findByText, getAllByRole } = render(
-      <MockedProvider mocks={mocks} addTypeName={false}>
-        <Recipes />
-      </MockedProvider>,
+      <MemoryRouter>
+        <MockedProvider mocks={mocks} addTypeName={false}>
+          <Recipes />
+        </MockedProvider>
+      </MemoryRouter>,
     );
 
     const oneOfTheRecipes = await findByText(recipes[0].title);
