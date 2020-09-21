@@ -3,9 +3,13 @@
 ## Introduction
 This is a project to demonstrate the usage of Marley Spoon recipes on [Contentful](https://contentful.com/). It consumes the data from the [Contentful Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api) and displays it. It uses Ruby on Rails in the backend to expose a GraphQL API that is consumed by a React application.
 
+
+
 ## User stories
 - As a Marley Spoon Recipes Guide user, I want to see a *paginated* list of recipes available in the system. Every recipe should display its title and image.
 - As a Marley Spoon Recipes Guide user, I want to see more details about any recipe in the list when I select it. A recipe should display its title, image, list of tags, description, and chef name.
+
+![Preview](https://i.ibb.co/Z6MfBg3/preview.gif)
 
 ## Versions
 - `Ruby 2.6.2`
