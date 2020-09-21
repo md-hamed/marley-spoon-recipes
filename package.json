@@ -2,7 +2,7 @@
   "name": "marley_spoon_recipes",
   "private": true,
   "scripts": {
-    "test": "jest --watch --colors"
+    "test": "jest --watch --colors --config app/javascript/testUtils/jest.config.js"
   },
   "dependencies": {
     "@apollo/client": "^3.2.0",
