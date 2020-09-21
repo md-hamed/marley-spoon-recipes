@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ApolloError } from '@apollo/client';
 import {
   Container,
   Card,
@@ -15,9 +16,6 @@ const RecipeList = ({
   error,
   loading,
   recipes,
-  nodesCount,
-  hasPreviousPage,
-  hasNextPage,
   pagesCount,
 }) => (
   <Container>
@@ -30,9 +28,9 @@ const RecipeList = ({
       </Message>
     )}
 
-    { loading ? (
+    {loading ? (
       <Dimmer active>
-        <Loader />
+        <Loader>Loading</Loader>
       </Dimmer>
     ) : (
       <Card.Group divided="true">
@@ -45,12 +43,9 @@ const RecipeList = ({
 );
 
 RecipeList.propTypes = {
-  error: PropTypes.bool,
+  error: ApolloError,
   loading: PropTypes.bool,
   recipes: PropTypes.arrayOf(RecipeType),
-  nodesCount: PropTypes.number,
-  hasPreviousPage: PropTypes.bool,
-  hasNextPage: PropTypes.bool,
   pagesCount: PropTypes.number,
 };
 
@@ -58,9 +53,6 @@ RecipeList.defaultProps = {
   error: false,
   loading: true,
   recipes: [],
-  nodesCount: 0,
-  hasPreviousPage: false,
-  hasNextPage: false,
   pagesCount: 0,
 };
 
