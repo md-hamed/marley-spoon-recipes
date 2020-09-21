@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeDetails from './Details';
+import RecipeDetails from './RecipeDetails';
 
 const Recipe = () => <RecipeDetails />;
 
