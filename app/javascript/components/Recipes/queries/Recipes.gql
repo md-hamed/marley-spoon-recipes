@@ -1,4 +1,4 @@
-query GetRates {
+query Recipes {
   recipes {
     nodes {
       id
@@ -8,9 +8,6 @@ query GetRates {
       chef { name }
       tags { name }
     }
-    nodesCount
-    hasPreviousPage
-    hasNextPage
     pagesCount
   }
 }
