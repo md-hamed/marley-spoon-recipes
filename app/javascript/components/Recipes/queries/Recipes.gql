@@ -1,0 +1,16 @@
+query GetRates {
+  recipes {
+    nodes {
+      id
+      title
+      photo
+      description
+      chef { name }
+      tags { name }
+    }
+    nodesCount
+    hasPreviousPage
+    hasNextPage
+    pagesCount
+  }
+}
