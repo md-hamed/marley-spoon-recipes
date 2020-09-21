@@ -6,19 +6,28 @@ import { buildMultipleRecipes } from '../../../testUtils/helper';
 import Recipes from '../../Recipes';
 import * as RecipesQuery from '../queries/Recipes.gql';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+  useParams: () => ({
+    page: 1,
+  }),
+  useRouteMatch: () => ({ url: '/recipes/1' }),
+}));
+
 const recipes = buildMultipleRecipes(10);
 const mocks = [
   {
     request: {
       query: RecipesQuery,
+      variables: {
+        page: 1,
+        perPage: 2,
+      },
     },
     result: {
       data: {
         recipes: {
           nodes: recipes,
-          nodesCount: recipes.length,
-          hasPreviousPage: false,
-          hasNextPage: false,
           pagesCount: 1,
         },
       },
@@ -32,6 +41,10 @@ describe('<Recipes />', () => {
       {
         request: {
           query: RecipesQuery,
+          variables: {
+            page: 1,
+            perPage: 2,
+          },
         },
         error: new Error('Something went wrong!'),
       },

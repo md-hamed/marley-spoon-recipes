@@ -8,7 +8,10 @@ import {
   Dimmer,
   Loader,
   Message,
+  Pagination,
+  Divider,
 } from 'semantic-ui-react';
+
 import RecipeItem from '../RecipeItem';
 import RecipeType from '../../types';
 
@@ -17,6 +20,7 @@ const RecipeList = ({
   loading,
   recipes,
   pagesCount,
+  handlePageChange,
 }) => (
   <Container>
     <Header as="h1">Marley Spoon Recipes!</Header>
@@ -39,6 +43,14 @@ const RecipeList = ({
         ))}
       </Card.Group>
     )}
+
+    <Divider horizontal />
+
+    <Pagination
+      defaultActivePage={1}
+      totalPages={pagesCount}
+      onPageChange={handlePageChange}
+    />
   </Container>
 );
 
@@ -47,6 +59,7 @@ RecipeList.propTypes = {
   loading: PropTypes.bool,
   recipes: PropTypes.arrayOf(RecipeType),
   pagesCount: PropTypes.number,
+  handlePageChange: PropTypes.func.isRequired,
 };
 
 RecipeList.defaultProps = {

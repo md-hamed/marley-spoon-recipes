@@ -1,12 +1,16 @@
-query Recipes {
-  recipes {
+query Recipes($page: Int, $perPage: Int) {
+  recipes(page: $page, perPage: $perPage) {
     nodes {
       id
       title
       photo
       description
-      chef { name }
-      tags { name }
+      chef {
+        name
+      }
+      tags {
+        name
+      }
     }
     pagesCount
   }

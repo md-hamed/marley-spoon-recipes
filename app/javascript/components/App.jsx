@@ -18,12 +18,8 @@ const App = () => (
         <Route exact path="/">
           <Redirect to="/recipes" />
         </Route>
-        <Route exact path="/recipes" component={Recipes} />
-        <Route
-          exact
-          path="/recipe"
-          component={Recipe}
-        />
+        <Route exact path="/recipes/:page?" component={Recipes} />
+        <Route exact path="/recipe" component={Recipe} />
       </Switch>
     </Router>
   </ApolloProvider>
